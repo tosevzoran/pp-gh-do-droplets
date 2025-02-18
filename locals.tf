@@ -8,7 +8,7 @@ locals {
       domain = {
         records = [
           {
-            domain = "image.sandboxs.me"
+            domain = "astro-blog.sandboxs.me"
             type   = "A"
             name   = "@"
           }
