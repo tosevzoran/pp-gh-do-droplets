@@ -1,3 +1,8 @@
+resource "digitalocean_ssh_key" "self" {
+  name       = "do-deploy"
+  public_key =  var.ssh_deploy_key_public
+}
+
 resource "digitalocean_droplet" "self" {
   for_each = local.droplets
 
@@ -6,6 +11,8 @@ resource "digitalocean_droplet" "self" {
   image  = each.value.image
   region = each.value.region
   size   = each.value.size
+
+  ssh_keys = [digitalocean_ssh_key.self.fingerprint]
 }
 
 resource "cloudflare_record" "self" {
