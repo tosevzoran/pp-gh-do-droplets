@@ -11,6 +11,11 @@ locals {
             domain = "astro-blog.sandboxs.me"
             type   = "A"
             name   = "@"
+          },
+          {
+            domain = "ciao.sandboxs.me"
+            type   = "A"
+            name   = "@"
           }
         ]
       }
